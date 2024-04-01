@@ -6,6 +6,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 @Service
 @Transactional
@@ -22,6 +23,9 @@ public class AuthServiceImpl implements AuthService{
     public User addNewUser(User user) {
         String password = user.getPassword();
         user.setPassword(passwordEncoder.encode(password));
+        Date date = new Date();
+        user.setCreated_at(date);
+        user.setUpdated_at(date);
         return userRepository.save(user);
     }
 
