@@ -12,7 +12,7 @@ import java.util.List;
 @Transactional
 public class AuthServiceImpl implements AuthService{
     private UserRepository userRepository;
-    private PasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder ;
 
     public AuthServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
